@@ -1,4 +1,4 @@
-﻿namespace Teeth_Backend.Models
+﻿namespace Teeth.Domain.Models
 {
     public class ClinicCredentials
     {
