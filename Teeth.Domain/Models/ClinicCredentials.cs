@@ -2,5 +2,6 @@
 {
     public class ClinicCredentials
     {
+        public long Id { get; set; }
     }
 }

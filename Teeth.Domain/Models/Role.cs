@@ -1,6 +1,6 @@
-﻿namespace Teeth.Domain.Models
+﻿namespace Teeth.Domain.Models;
+
+public class Role
 {
-    public class Role
-    {
-    }
+    public long Id { get; set; }
 }

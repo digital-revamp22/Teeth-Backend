@@ -2,4 +2,5 @@
 
 public class AppointmentHistory
 {
+    public long Id { get; set; }
 }

@@ -2,5 +2,6 @@
 {
     public class Coupon
     {
+        public long Id { get; set; }
     }
 }

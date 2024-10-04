@@ -6,25 +6,24 @@ namespace Teeth.Domain.Models
     public class User
     {
         [Key] public long Id { get; set; }
-        [Required] public string Name { get; set; }
-        [Required] [EmailAddress] public string Email { get; set; }
-        [Required] public string Password { get; set; }
-        [Required] public string Phone { get; set; }
-        [Required] public string Address { get; set; }
-        public string Image { get; set; }
+        public required string Name { get; set; }
+        [EmailAddress] public required string Email { get; set; }
+        public required string Password { get; set; }
+        public required string Phone { get; set; }
+        public required string Address { get; set; }
+        public string? Image { get; set; }
         public GenderEnum Gender { get; set; }
         public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } // safe deletion
         public DateTimeOffset? BirthDate { get; set; }
         public DateTimeOffset? CreatedAt { get; set; }
-
         public DateTimeOffset? UpdatedAt { get; set; }
         public int YearsOfExperience { get; set; }
-        public string? Speciality { get; set; }
+        public string? Speciality { get; set; } // dentist speciality
         public bool IsVerified { get; set; }
         public double? AverageRating { get; set; }
-        public int? NumberOfRatings { get; set; }
 
+        public int? NumberOfRatings { get; set; }
 
         // common relations with all users
         public long UserRoleId { get; set; }

@@ -1,6 +1,6 @@
 @Teeth_Backend_HostAddress = http://localhost:5239
 
-GET {{Teeth_Backend_HostAddress}}/weatherforecast/
+GET {{Teeth_Backend_HostAddress}}/api/User/
 Accept: application/json
 
 ###

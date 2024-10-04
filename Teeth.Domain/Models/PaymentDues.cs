@@ -2,5 +2,6 @@
 {
     public class PaymentDues
     {
+        public long Id { get; set; }
     }
 }

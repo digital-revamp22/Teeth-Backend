@@ -2,5 +2,6 @@
 {
     public class ClinicContract
     {
+        public long Id { get; set; }
     }
 }
