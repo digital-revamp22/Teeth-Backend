@@ -1,7 +1,6 @@
-﻿namespace Teeth.Domain.Models.Lookups
+﻿namespace Teeth.Domain.Models.Lookups;
+
+public class Coupon
 {
-    public class Coupon
-    {
-        public long Id { get; set; }
-    }
+    public long Id { get; set; }
 }

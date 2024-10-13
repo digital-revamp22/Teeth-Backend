@@ -1,44 +1,46 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Teeth.Application.Interfaces;
 using Teeth.Domain.Models;
 using Teeth.Domain.Models.Lookups;
 
 namespace Teeth.Infrastructure.Data;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IAppDbContext
 {
     // Users
-    public DbSet<User> Users { get; set; }
+    public DbSet<User> Users => Set<User>();
 
     // Clinic 
-    public DbSet<Clinic> Clinics { get; set; }
-    public DbSet<ClinicContract> ClinicContracts { get; set; }
-
-    public DbSet<ClinicCredentials> ClinicCredentials { get; set; }
+    public DbSet<Clinic> Clinics => Set<Clinic>();
+    public DbSet<ClinicContract> ClinicContracts => Set<ClinicContract>();
+    public DbSet<ClinicCredentials> ClinicCredentials => Set<ClinicCredentials>();
 
     // RBAC
-    public DbSet<UserRole> UserRoles { get; set; }
-
-    public DbSet<Role> Roles { get; set; }
+    public DbSet<UserRole> UserRoles => Set<UserRole>();
+    public DbSet<Role> Roles => Set<Role>();
 
     // Appointment
-    public DbSet<Appointment> Appointments { get; set; }
-
-    public DbSet<Schedule> Schedules { get; set; }
+    public DbSet<Appointment> Appointments => Set<Appointment>();
+    public DbSet<Schedule> Schedules => Set<Schedule>();
 
     // Finance
-    public DbSet<Payment> Payments { get; set; }
-
-    public DbSet<PaymentDues> PaymentDues { get; set; }
+    public DbSet<Payment> Payments => Set<Payment>();
+    public DbSet<PaymentDues> PaymentDues => Set<PaymentDues>();
 
     // cosmetics
-    public DbSet<Product> Products { get; set; }
-    public DbSet<Order> Orders { get; set; }
-    public DbSet<OrderItem> OrderItems { get; set; }
-
-    public DbSet<Delivery> Deliveries { get; set; }
+    public DbSet<Product> Products => Set<Product>();
+    public DbSet<Order> Orders => Set<Order>();
+    public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+    public DbSet<Delivery> Deliveries => Set<Delivery>();
 
     // Lookups
-    public DbSet<Country> Countries { get; set; }
-    public DbSet<Coupon> Coupons { get; set; }
-    public DbSet<Feedback> Ratings { get; set; }
+    public DbSet<Country> Countries => Set<Country>();
+    public DbSet<Coupon> Coupons => Set<Coupon>();
+    public DbSet<Feedback> Feedbacks => Set<Feedback>();
+
+    public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        return base.SaveChangesAsync();
+    }
+
 }

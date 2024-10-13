@@ -1,7 +1,6 @@
-﻿namespace Teeth.Domain.Models
+﻿namespace Teeth.Domain.Models;
+
+public class Order
 {
-    public class Order
-    {
-        public long Id { get; set; }
-    }
+    public long Id { get; set; }
 }
