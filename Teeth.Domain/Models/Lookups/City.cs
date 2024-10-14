@@ -1,6 +1,21 @@
-﻿namespace Teeth.Domain.Models.Lookups;
+﻿using System.ComponentModel.DataAnnotations;
+using Teeth.Domain.Interfaces;
 
-public class City
+namespace Teeth.Domain.Models.Lookups;
+
+public class City : IAuditableEntity
 {
-    public int Id { get; set; }
+    [Key]
+    public long Id { get; set; }
+    public long CountryId { get; set; }
+
+    [Required]
+    [StringLength(100)]
+    public string Name { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string CreatedBy { get; set; } = "System";
+    public DateTime? UpdatedAt { get; set; } = null;
+    public string UpdatedBy { get; set; } = null;
+    public bool IsDeleted { get; set; } = false;
+    public bool IsActived { get; set; } = true;
 }
