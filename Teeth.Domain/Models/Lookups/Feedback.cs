@@ -1,15 +1,31 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Teeth.Domain.Interfaces;
 
 namespace Teeth.Domain.Models.Lookups;
 
-public class Feedback
+public class Feedback : IAuditableEntity
 {
-    public long id { get; set; }
+    [Key]
+    public long Id { get; set; }
+
+    [Required]
     public long AppointmentId { get; set; }
-    public long UserId { get; set; }
+
+    [Required]
+    public long ReviewerId { get; set; }
+
+    [Required]
+
     public long DentistId { get; set; }
 
-    [Required] public int Rating { get; set; }
+    [Required]
+    [Range(1, 5)]
+    public int Rating { get; set; }
     public string Comments { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string CreatedBy { get; set; } = "System";
+    public DateTime? UpdatedAt { get; set; } = null;
+    public string UpdatedBy { get; set; } = null;
+    public bool IsDeleted { get; set; } = false;
+    public bool IsActived { get; set; } = true;
 }
